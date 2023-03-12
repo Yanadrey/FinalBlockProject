@@ -22,18 +22,22 @@ int CountLessFourSimbolsElements(string[] array)
     return result;
 }
 
-// string[] LessFourSimbolsArray(string[] array)
-// {
-//     string[] newArray = new string[];
-
-//     for (int i = 0; i < array.Length; i++)
-//     {
-
-//     }
-// }
+string[] LessFourSimbolsArray(string[] array, int size)
+{
+    string[] newArray = new string[size];
+    int j = 0;
+    for (int i = 0; i < array.Length; i++)
+        if (array[i].Length <= 3)
+        {
+            newArray[j] = array[i];
+            j++;
+        }
+    return newArray;
+}
 
 string[] myArray = InputArray("Введите строки через запятую и пробел: ");
-PrintArray(myArray);
-
 int sizeNewArray = CountLessFourSimbolsElements(myArray);
-System.Console.WriteLine(sizeNewArray);
+string[] newArray = LessFourSimbolsArray(myArray, sizeNewArray);
+System.Console.Write("Массив из строк исходного массива, длина которых меньше либо равна три символа: ");
+PrintArray(newArray);
+
